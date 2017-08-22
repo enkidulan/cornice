@@ -225,7 +225,8 @@ def register_service_views(config, service):
         # unpickleable values.)
         for item in args:
             if item not in cornice_parameters:
-                args[item] = copy.deepcopy(args[item])
+                args[item] = copy.copy(args[item])
+                # args[item] = copy.deepcopy(args[item])
 
         args['request_method'] = method
 
